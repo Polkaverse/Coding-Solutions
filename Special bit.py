@@ -1,21 +1,15 @@
 c=[]
-
+t=[]
 n,q=map(int,input().split(' '))
-nums=input().split(' ')
-for i in nums:
-    x=int(i)
-    count = 0
-   
+for i in range(0,n):
+    t.append(int(input()))
+for i in range(0,len(t)):
+    input=bin(t[i])
+    input=input[2:]
     
-    while (int(x)!=0):
      
-        
-        x = (int(x) & (int(x) << 1))
-  
-        count=count+1
-     
-    c.append(count)
-
+    c.append(max(map(len, input.split('0'))))
+print(c)
 for j in range(0,q):
     count=0
     l,r=map(int, input().split(' '))
