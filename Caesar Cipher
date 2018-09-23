@@ -1,0 +1,36 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the caesarCipher function below.
+def caesarCipher(text, s):
+    result = ""
+    for i in range(len(text)):
+        char = text[i]
+        if (char.isupper()):
+            result += chr((ord(char) + s-65) % 26 + 65)
+        elif(char.islower()):
+            result += chr((ord(char) + s - 97) % 26 + 97)
+        else:
+            result +=char
+ 
+    return result
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    s = input()
+
+    k = int(input())
+
+    result = caesarCipher(s, k)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
